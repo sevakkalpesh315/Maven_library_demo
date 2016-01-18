@@ -1,0 +1,70 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+bintray {
+    user = 'sevakkalpesh'
+    key = '23102deebbeedddf2cdfce25d8dcac38ac588755'
+    pkg {
+        repo = 'maven'
+        name = 'com.kalpeshsevak.librarydemo'
+
+        version {
+            name = '1.0.1-librarydemo'
+            desc = 'My test upload'
+            released  = new Date()
+            vcsTag = '1.0.1'
+        }
+
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/hathibelagal/LibraryTutorial.git'
+        websiteUrl = 'https://github.com/hathibelagal/LibraryTutorial'
+    }
+    configurations = ['archives']
+}
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'demo'
+
+    publishedGroupId = 'com.kalpeshsevak.librarydemo'
+    libraryName = 'viewlike'
+    artifact = 'view-like'
+
+    libraryDescription = 'A simple library demo'
+
+   // siteUrl = 'https://github.com/nuuneoi/FBLikeAndroid'
+  //  gitUrl = 'https://github.com/nuuneoi/FBLikeAndroid.git'
+
+    libraryVersion = '0.0.1'
+
+    developerId = 'sevakkalpesh'
+    developerName = 'Sevak Kalpesh'
+    developerEmail = 'sevakkalpesh@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:23.1.1'
+}
